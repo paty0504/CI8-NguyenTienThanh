@@ -9,16 +9,22 @@ import java.util.List;
 import java.util.Random;
 
 public class GameCanvas extends JPanel {
-    // Star star = new Star(); khoi tao doi tuong
-    private List<Star> stars; //khai bao mang
-    private BufferedImage backBuffered;
-    private BufferedImage playerImage;
+
+    private List<Star> stars;
     private List<Enemy> enemies;
-    Player player = new Player();
-    private int timeIntervalStar = 0;
+    private BufferedImage backBuffered;
+    private Background background;
+    private Enemy followingEnemy, shootingAroundEnemy;
+
+
+    public Player player;
+
     private Graphics graphics;
-    private int timeEnemy = 0;
+
     private Random random = new Random();
+
+    private int timeIntervalStar = 0;
+    private int timeIntervalEnemy = 0;
 
 
     public GameCanvas() {
@@ -36,17 +42,33 @@ public class GameCanvas extends JPanel {
         this.backBuffered = new BufferedImage(1024, 600, BufferedImage.TYPE_INT_ARGB);
         this.graphics = this.backBuffered.getGraphics();
     }
-    private void setupEnemy(){
-        this.enemies = new ArrayList<>();
 
-
-    }
     private void setupCharacter() {
         this.setupStar();
-        this.playerImage = this.loadImage("resources/images/circle.png");
-        this.setupEnemy();
+        this.enemies = new ArrayList<>();
         this.setupPlayer();
     }
+    private void followingEnemy(){
+        this.followingEnemy = new Enemy();
+        this.createEnemy(followingEnemy);
+
+
+    }
+    private void shootingAroundEnemy(){
+        this.shootingAroundEnemy = new Enemy();
+        this.createEnemy(shootingAroundEnemy);
+    }
+
+
+    private void setupPlayer() {
+        this.player = new Player();
+        this.player.position.set(200, 300);
+        this.player.velocity.set(3.5f, 0);
+        this.followingEnemy();
+        this.shootingAroundEnemy();
+
+    }
+
 
     private void setupStar() {
         this.stars = new ArrayList<>();
@@ -58,52 +80,58 @@ public class GameCanvas extends JPanel {
     }
 
     public void renderAll() {
-        this.renderBackground();
+        this.background.renderBackground();
 
-        this.stars.forEach(star -> star.render(graphics) );
 
-        this.player.render(graphics);
+        this.stars.forEach(star -> star.render(graphics));
+
+        this.player.render(this.graphics);
+        this.shootingAroundEnemy.render(graphics);
+        this.followingEnemy.render(graphics);
 
         this.enemies.forEach(enemy -> enemy.render(graphics));
-
-
         this.repaint();
     }
 
     public void runAll() {
-        this.stars.forEach(star -> star.run());
-        this.playerMove();
-        this.createStar();
-        this.createEnemy();
-        this.enemies.forEach(enemy -> enemy.run());
-        this.createPlayer();
+//        this.createStar();
+//        this.stars.forEach(star -> star.run());
+        this.setupBackground();
+
+        this.followingEnemy.followingEnemy(player.position);
+        this.followingEnemy.run();
+        this.shootingAroundEnemy.shootingAround();
+        this.player.run();
+        this.player.shoot();
+
+
 
     }
-    private void setupPlayer(){
-        this.player.positionYPlayer[0] = 500;
-        this.player.positionYPlayer[0] = 500;
+
+    private void createStar() {
+        if (this.timeIntervalStar == 30) {
+            Star star = new Star();
+            star.position.set(1024, this.random.nextInt(600));
+            star.image = this.loadImage("resources/images/star.png");
+            star.width = 5;
+            star.height = 5;
+            star.velocity.set(this.random.nextInt(3) + 1, 0);
+            this.stars.add(star);
+            this.timeIntervalStar = 0;
+        } else {
+            this.timeIntervalStar += 1;
+        }
+
     }
 
+    private void createEnemy(Enemy enemy) {
 
-    private void playerMove() {
-        if (this.player.positionXPlayer[0] > 1024 && this.player.positionXPlayer[1] > 1024 && this.player.positionXPlayer[2]>1024) {
-            this.player.positionXPlayer[0] = 0;
-            this.createPlayer();
-        }
-        if (this.player.positionXPlayer[0] < 0 && this.player.positionXPlayer[1] < 0 && this.player.positionXPlayer[2] < 0) {
-            this.player.positionXPlayer[0] = 1024;
-            this.createPlayer();
-        }
-        if (this.player.positionYPlayer[0] > 600 && this.player.positionYPlayer[1] > 600 && this.player.positionYPlayer[2] > 600) {
 
-            this.player.positionYPlayer[0] = 0;
-            this.createPlayer();
-        }
-        if (this.player.positionYPlayer[0] < 0 && this.player.positionYPlayer[1] < 0 && this.player.positionYPlayer[2] < 0) {
-
-            this.player.positionYPlayer[0] = 600;
-            this.createPlayer();
-        }
+            enemy.position = new Vector2D(random.nextInt(1024), random.nextInt(600));
+            enemy.width = 10;
+            enemy.height = 10;
+            enemy.image = this.loadImage("resources/images/circle.png");
+            enemy.velocity = new Vector2D(1, 1);
     }
 
     private void renderBackground() {
@@ -118,48 +146,7 @@ public class GameCanvas extends JPanel {
             return null;
         }
     }
-
-    private void createStar(){
-        if (this.timeIntervalStar == 30){   // den 30 thi tao 1 star roi reset lai loop
-            Star star = new Star();
-            star.x = 1024;
-            star.y = this.random.nextInt(600);
-            star.image = this.loadImage("resources/images/star.png");
-            star.width = 20;
-            star.height = 20;
-            star.velocityX = this.random.nextInt(3) + 1;
-            this.stars.add(star);
-            this.timeIntervalStar = 0;
-        } else {
-            this.timeIntervalStar += 1;
-        }
-
-
-
-    }
-    private void createEnemy(){
-        if(this.timeEnemy == 10){
-            Enemy enemy = new Enemy();
-            enemy.x = this.random.nextInt(1024);
-            enemy.y = this.random.nextInt(600);
-            enemy.w = 5;
-            enemy.h = 5;
-            enemy.image = this.loadImage("resources/images/circle.png");
-            enemy.vx = this.random.nextInt(3) + 1;
-            enemy.vy = this.random.nextInt(3) + 1;
-            this.enemies.add(enemy);
-            this.timeEnemy =0;
-        } else {
-            this.timeEnemy +=1;
-        }
-    }
-    private void createPlayer() {
-        this.player.positionXPlayer[1] = this.player.positionXPlayer[0] + 50;
-        this.player.positionYPlayer[1] = this.player.positionYPlayer[0];
-
-        this.player.positionXPlayer[2] = this.player.positionXPlayer[0] + 50 / 2;
-        this.player.positionYPlayer[2] = this.player.positionYPlayer[0] - 50;
-
-        this.player.v = 5;
+    private void setupBackground(){
+        this.background = new Background(graphics);
     }
 }

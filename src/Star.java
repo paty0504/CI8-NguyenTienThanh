@@ -5,26 +5,33 @@ public class Star {
 
     public BufferedImage image;
 
-    public int x;
-    public int y;
+    public Vector2D position;
 
     public int width;
     public int height;
 
-    public int velocityX;
-    public int velocityY;
+    public Vector2D velocity;
 
-    public void render(Graphics graphics ){
-        graphics.drawImage(this.image, this.x, this.y, this.width, this.height, null);
-
-    }
-    public void run(){
-        this.x -= this.velocityX;
-
+    public Star() {
+        this.position = new Vector2D();
+        this.velocity = new Vector2D();
     }
 
+    public void run() {
+        this.position.subtractBy(this.velocity);
+    }
 
+    public void render(Graphics graphics) {
+        graphics.drawImage(
+                this.image,
+                (int) this.position.x,
+                (int) this.position.y,
+                this.width,
+                this.height,
+                null
+        );
 
+    }
 
 
 }
