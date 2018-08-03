@@ -13,9 +13,9 @@ public class GameCanvas extends JPanel {
     private List<Star> stars;
     private List<Enemy> enemies;
     private BufferedImage backBuffered;
-    private Background background;
-    private Enemy followingEnemy, shootingAroundEnemy;
-
+    private Background background = new Background();
+    private CreateEnemy createEnemy = new CreateEnemy();
+    private CreateEnemyFollow createEnemyFollow = new CreateEnemyFollow();
 
     public Player player;
 
@@ -24,7 +24,7 @@ public class GameCanvas extends JPanel {
     private Random random = new Random();
 
     private int timeIntervalStar = 0;
-    private int timeIntervalEnemy = 0;
+
 
 
     public GameCanvas() {
@@ -47,28 +47,14 @@ public class GameCanvas extends JPanel {
         this.setupStar();
         this.enemies = new ArrayList<>();
         this.setupPlayer();
-    }
-    private void followingEnemy(){
-        this.followingEnemy = new Enemy();
-        this.createEnemy(followingEnemy);
-
 
     }
-    private void shootingAroundEnemy(){
-        this.shootingAroundEnemy = new Enemy();
-        this.createEnemy(shootingAroundEnemy);
-    }
-
 
     private void setupPlayer() {
         this.player = new Player();
         this.player.position.set(200, 300);
         this.player.velocity.set(3.5f, 0);
-        this.followingEnemy();
-        this.shootingAroundEnemy();
-
     }
-
 
     private void setupStar() {
         this.stars = new ArrayList<>();
@@ -80,30 +66,30 @@ public class GameCanvas extends JPanel {
     }
 
     public void renderAll() {
-        this.background.renderBackground();
-
+        this.background.render(this.graphics);
 
         this.stars.forEach(star -> star.render(graphics));
 
         this.player.render(this.graphics);
-        this.shootingAroundEnemy.render(graphics);
-        this.followingEnemy.render(graphics);
 
         this.enemies.forEach(enemy -> enemy.render(graphics));
+
+        this.createEnemyFollow.render(this.graphics);
+        this.createEnemy.render(this.graphics);
         this.repaint();
     }
 
     public void runAll() {
-//        this.createStar();
-//        this.stars.forEach(star -> star.run());
-        this.setupBackground();
+        this.enemies.forEach(enemy -> enemy.run());
+        this.createStar();
+        this.stars.forEach(star -> star.run());
 
-        this.followingEnemy.followingEnemy(player.position);
-        this.followingEnemy.run();
-        this.shootingAroundEnemy.shootingAround();
+        this.createEnemy.run();
+        this.createEnemyFollow.updateVelocity(this.player.position);
+        this.createEnemyFollow.run();
+
+
         this.player.run();
-        this.player.shoot();
-
 
 
     }
@@ -112,9 +98,6 @@ public class GameCanvas extends JPanel {
         if (this.timeIntervalStar == 30) {
             Star star = new Star();
             star.position.set(1024, this.random.nextInt(600));
-            star.image = this.loadImage("resources/images/star.png");
-            star.width = 5;
-            star.height = 5;
             star.velocity.set(this.random.nextInt(3) + 1, 0);
             this.stars.add(star);
             this.timeIntervalStar = 0;
@@ -124,20 +107,20 @@ public class GameCanvas extends JPanel {
 
     }
 
-    private void createEnemy(Enemy enemy) {
-
-
-            enemy.position = new Vector2D(random.nextInt(1024), random.nextInt(600));
-            enemy.width = 10;
-            enemy.height = 10;
-            enemy.image = this.loadImage("resources/images/circle.png");
-            enemy.velocity = new Vector2D(1, 1);
-    }
-
-    private void renderBackground() {
-        this.graphics.setColor(Color.BLACK);
-        this.graphics.fillRect(0, 0, 1024, 600);
-    }
+//    private void createEnemy() {
+//        if (this.timeIntervalEnemy == 50) {
+//            Enemy enemy = new Enemy();
+//            enemy.position.set(this.random.nextInt(1024), this.random.nextInt(600));
+//            enemy.width = 20;
+//            enemy.height = 20;
+//            enemy.image = this.loadImage("resources/images/circle.png");
+//            enemy.velocity.set(this.random.nextInt(3) + 1, this.random.nextInt(3) + 1);
+//            this.enemies.add(enemy);
+//            this.timeIntervalEnemy = 0;
+//        } else {
+//            this.timeIntervalEnemy += 1;
+//        }
+//    }
 
     private BufferedImage loadImage(String path) {
         try {
@@ -145,8 +128,5 @@ public class GameCanvas extends JPanel {
         } catch (IOException e) {
             return null;
         }
-    }
-    private void setupBackground(){
-        this.background = new Background(graphics);
     }
 }
