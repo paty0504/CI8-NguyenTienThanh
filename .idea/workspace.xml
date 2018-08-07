@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18475dec-2bc9-4c91-97a1-5b46788a4ab9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/BackgroundRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CreateEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CreateEnemyFollow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EnemyAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EnemyFollow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EnemyShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ImageRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PlayerAttack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PlayerShoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PolygonRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Renderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/GameCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/GameCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/rocket-ci-8/Star.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/rocket-ci-8/Star.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocket-ci8-master/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-ci8-master/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocket-ci8-master/src/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-ci8-master/src/GameCanvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocket-ci8-master/src/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-ci8-master/src/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rocket-ci8-master/src/Star.java" beforeDir="false" afterPath="$PROJECT_DIR$/rocket-ci8-master/src/Star.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Background.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BulletEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BulletEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BulletPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BulletPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameCanvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Star.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Star.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +32,8 @@
       <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+            <state relative-caret-position="-740">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#1477#1478#0" expanded="true" />
                 <element signature="e#1523#1524#0" expanded="true" />
@@ -91,8 +61,8 @@
       <file leaf-file-name="CreateEnemyFollow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CreateEnemyFollow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="93">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1198#1199#0" expanded="true" />
@@ -213,8 +183,8 @@
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Star.java" />
         <option value="$PROJECT_DIR$/src/EnemyAttack.java" />
-        <option value="$PROJECT_DIR$/src/CreateEnemyFollow.java" />
         <option value="$PROJECT_DIR$/src/CreateEnemy.java" />
+        <option value="$PROJECT_DIR$/src/CreateEnemyFollow.java" />
         <option value="$PROJECT_DIR$/src/GameCanvas.java" />
       </list>
     </option>
@@ -361,12 +331,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533017803201</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="homework commit">
+      <created>1533309021133</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533309021133</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -376,7 +352,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3163752" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3163752" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
@@ -402,7 +378,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lec3hw" />
     <MESSAGE value="update game rocket" />
-    <option name="LAST_COMMIT_MESSAGE" value="update game rocket" />
+    <MESSAGE value="homework commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework commit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Lec2.java" />
@@ -694,18 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CreateEnemyFollow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1198#1199#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CreateEnemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -718,10 +683,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/CreateEnemyFollow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1198#1199#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GameCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+        <state relative-caret-position="-740">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#1477#1478#0" expanded="true" />
             <element signature="e#1523#1524#0" expanded="true" />
